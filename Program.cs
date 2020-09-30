@@ -1,12 +1,16 @@
 ﻿using System;
+using TodoApp.Model;
 
 namespace TodoApp
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
-        {
-
+        public static void Main(string[] args)
+        {   
+            //Constructor
+            Person aPerson = new Person(555, "Bengt", "Svensson");
+            aPerson.LastName = "Ohlsson";
+            aPerson.FirstName = "Emil";
         }
     }
 }
