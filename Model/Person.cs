@@ -6,7 +6,7 @@ namespace TodoApp.Model
 {
     public class Person
     {
-        private readonly int personId;
+        readonly int personId;
         string firstName = "John";
         string lastName = "Doe";
         public string FirstName
