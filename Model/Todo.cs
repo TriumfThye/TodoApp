@@ -11,7 +11,7 @@ namespace TodoApp.Model
         bool done;
         Person assignee;
 
-        public string Description
+        public string Description//Property
         {
             get
             {
@@ -54,7 +54,7 @@ namespace TodoApp.Model
             }
         }
 
-        public Todo(int id, string desc)
+        public Todo(int id, string desc)//Constructor
         {
             todoId = id;
             Description = desc;
