@@ -11,6 +11,14 @@ namespace TodoApp.Model
         bool done;
         Person assignee;
 
+        public int TodoId//Property
+        {
+            get
+            {
+                return todoId;
+            }
+        }
+
         public string Description//Property
         {
             get
