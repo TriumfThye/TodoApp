@@ -35,7 +35,7 @@ namespace TodoApp.Data
             int index = personArray.Length;
             int personId = PersonSequencer.NextPersonId();
             Person newPerson = new Person(personId, firstName, lastName);
-            Array.Resize<Person>(ref personArray, index+1);
+            Array.Resize<Person>(ref personArray, index + 1);
             personArray[index] = newPerson;
         }
 
@@ -43,6 +43,18 @@ namespace TodoApp.Data
         {
             personArray = new Person[0];
         }
+
+        public void RemovePerson(Person person)
+        {
+            int indexRemove = Array.IndexOf(personArray, person);
+            if (indexRemove >= 0)
+            {
+                personArray[indexRemove] = personArray[personArray.Length - 1];
+                Array.Resize<Person>(ref personArray, personArray.Length - 1);
+            }
+
+        }
+
 
     }
 }

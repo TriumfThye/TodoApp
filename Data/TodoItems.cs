@@ -99,5 +99,19 @@ namespace TodoApp.Data
             return storedNullAssignee;
 
         }
+        
+        public void RemoveTodoItem(Todo todo)
+        {
+            int indexRemove = Array.IndexOf(todoArray, todo);
+            if (indexRemove >= 0)
+            {
+                todoArray[indexRemove] = todoArray[todoArray.Length - 1];
+                Array.Resize<Todo>(ref todoArray, todoArray.Length - 1);
+            }
+
+        }
+
+        
+
     }
 }
