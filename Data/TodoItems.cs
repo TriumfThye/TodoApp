@@ -44,8 +44,60 @@ namespace TodoApp.Data
             todoArray = new Todo[0];
         }
 
+        public Todo[] FindByDoneStatus(bool doneStatus)
+        {
+            Todo[] doneTodo = new Todo[0];
+            foreach (Todo todo in todoArray)
+            {
+                if (todo.Done == doneStatus)
+                {
+                    int index = doneTodo.Length;
+                    Array.Resize<Todo>(ref doneTodo, index + 1);
+                    doneTodo[index] = todo;
+                }
+            }
+            return doneTodo;
+        }
+
+        public Todo[] FindByAssignee(int personId)
+        {
+            Todo[] assigneeTodo = new Todo[0];
+            foreach (Todo todo in todoArray)
+            {
+                if (todo.Assignee != null && todo.Assignee.PersonId == personId) 
+                { 
+                    int index = assigneeTodo.Length;
+                    Array.Resize<Todo>(ref assigneeTodo, index + 1);
+                    assigneeTodo[index] = todo;
+                }
+            }
+            return assigneeTodo;
+
+        }
+
+        public Todo[] FindByAssignee(Person assignee)
+        {
+            int id = assignee.PersonId;
+            Todo[] storedAssignee = FindByAssignee(id);
+            return storedAssignee;
+        }
 
 
 
+        public Todo[] FindUnassignedTodoItems()
+        {
+            Todo[] storedNullAssignee = new Todo[0];
+            foreach (Todo todo in todoArray)
+            {
+                if (todo.Assignee == null)
+                {
+                    int index = storedNullAssignee.Length;
+                    Array.Resize<Todo>(ref storedNullAssignee, index + 1);
+                    storedNullAssignee[index] = todo;
+                }
+            }
+            return storedNullAssignee;
+
+        }
     }
 }
